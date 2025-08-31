@@ -1,46 +1,86 @@
-\# ACEestFitness Workout Tracker
+### DevOps Assignment – Fitness Tracker App
 
-
-
-A simple fitness tracker built with Flask to log and view workouts. Developed as part of a DevOps assignment to demonstrate CI/CD automation, unit testing, and containerization.
-
-
+This repository contains a simple Flask-based fitness tracker application developed as part of the 2024HT66514 DevOps assignment. It allows users to log workouts and view them, with additional support for GUI interaction via Tkinter. The project demonstrates best practices in version control, testing, containerization, CI/CD automation, and documentation.
 
 ---
 
+### Project Structure
+
+├── ACEest_Fitness.py         # Flask application  
+├── gui_app.py                # Optional GUI version using Tkinter  
+├── test_app.py               # Pytest unit tests  
+├── requirements.txt          # Python dependencies  
+├── Dockerfile                # Containerization setup  
+├── .github/  
+│   └── workflows/  
+│       └── ci.yml            # GitHub Actions CI/CD pipeline  
+└── README.md                 # Project documentation  
 
 
-\## Features
+### How to Run the Application Locally
 
+**Prerequisites**  
+- Python 3.8+  
+- `pip` for installing dependencies  
 
+**Setup Instructions**
+```bash
+git clone https://github.com/SharanyaSSS/Sharanya-S---2024HT66514---Devops-Assignment.git  
+cd Sharanya-S---2024HT66514---Devops-Assignment  
+pip install -r requirements.txt  
+```
 
-\- Add and view workouts via REST API
+**Run the Flask App**
+```bash
+python ACEest_Fitness.py  
+```
 
-\- Unit testing with Pytest
-
-\- CI pipeline using GitHub Actions
-
-\- Dockerized for deployment
-
-\- Tkinter version included for GUI-based interaction
-
-
+This will start the fitness tracker web app locally. You can log workouts and view them via the browser interface.
 
 ---
 
+### How to Run Tests Locally
 
+Unit tests are written using **Pytest**. To execute them:
 
-\## Setup Instructions
+```bash
+pytest test_app.py  
+```
 
+This will run all test cases and display results in the terminal.
 
+---
 
-1\. Clone the repository:
+### Docker Containerization
 
-&nbsp;  ```bash
+To build and run the application using Docker:
 
-&nbsp;  git clone https://github.com/your-username/devops-assignment.git
+```bash
+docker build -t fitness-tracker .  
+docker run -p 5000:5000 fitness-tracker  
+```
 
-&nbsp;  cd devops-assignment
+This will expose the Flask app on `localhost:5000`.
 
+---
 
+### GitHub Actions CI/CD Pipeline
 
+This repository includes a CI/CD pipeline configured via **GitHub Actions**:
+
+- Triggered on every push to the `master` branch  
+- Automatically installs dependencies  
+- Runs Pytest to validate application logic  
+- Builds the Docker image to ensure containerization works as expected  
+
+You can view the workflow file at `.github/workflows/ci.yml` and check the **Actions** tab for recent successful runs.
+
+---
+
+### Extra Features
+
+- A GUI version of the app (`gui_app.py`) is included for desktop use  
+- All commits follow meaningful naming conventions  
+- The repository is public and accessible for review  
+
+---
